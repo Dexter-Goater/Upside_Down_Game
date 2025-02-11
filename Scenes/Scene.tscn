@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5sg24ekp0qsq"]
+
+[ext_resource type="Script" path="res://Scripts/scene.gd" id="1_3f2lx"]
+[ext_resource type="Texture2D" uid="uid://cx8x1k6mr4jyk" path="res://icon.svg" id="1_4o7yd"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_woobo"]
+[ext_resource type="Script" path="res://Scripts/House1.gd" id="3_vycj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgra2"]
+size = Vector2(126, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa1qf"]
+size = Vector2(121.875, 119)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3f2lx")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_woobo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_vgra2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_4o7yd")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="House" type="Area2D" parent="."]
+position = Vector2(392, -209)
+script = ExtResource("3_vycj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_fa1qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="House"]
+texture = ExtResource("1_4o7yd")
+
+[node name="House2" type="Area2D" parent="."]
+position = Vector2(766, -196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House2"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_fa1qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="House2"]
+texture = ExtResource("1_4o7yd")
+
+[connection signal="body_entered" from="House" to="Player" method="_on_house_body_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckiam70hx00va"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_rgpdl"]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_rgpdl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Play_button" type="Button" parent="."]
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 22.0
+offset_bottom = 12.0
+text = "Play"
+
+[connection signal="pressed" from="Play_button" to="." method="_on_play_button_pressed"]

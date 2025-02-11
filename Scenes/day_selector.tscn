@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://tpx1bdt2k6hv"]
+
+[ext_resource type="Script" path="res://Scripts/day_1_button.gd" id="1_4geq8"]
+
+[node name="Day_selector" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Day1button" type="Button" parent="."]
+offset_left = -518.0
+offset_top = -66.0
+offset_right = -360.0
+offset_bottom = 64.0
+text = "Day:1"
+script = ExtResource("1_4geq8")
+
+[node name="Day2button" type="Button" parent="."]
+offset_left = -313.0
+offset_top = -66.0
+offset_right = -155.0
+offset_bottom = 64.0
+text = "Day:2"
+
+[node name="Day3button" type="Button" parent="."]
+offset_left = -93.0
+offset_top = -66.0
+offset_right = 65.0
+offset_bottom = 64.0
+text = "Day:3"
+
+[node name="Day4button" type="Button" parent="."]
+offset_left = 129.0
+offset_top = -66.0
+offset_right = 287.0
+offset_bottom = 64.0
+text = "Day:4"
+
+[node name="Day5button" type="Button" parent="."]
+offset_left = 361.0
+offset_top = -66.0
+offset_right = 519.0
+offset_bottom = 64.0
+text = "Day:5"
+
+[connection signal="pressed" from="Day1button" to="Day1button" method="_on_pressed"]

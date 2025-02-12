@@ -17,7 +17,6 @@ script = ExtResource("1_3f2lx")
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_woobo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_vgra2")
 
@@ -38,7 +37,7 @@ shape = SubResource("RectangleShape2D_fa1qf")
 texture = ExtResource("1_4o7yd")
 
 [node name="House2" type="Area2D" parent="."]
-position = Vector2(766, -196)
+position = Vector2(766, -209)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House2"]
 position = Vector2(1, -2)
@@ -48,3 +47,4 @@ shape = SubResource("RectangleShape2D_fa1qf")
 texture = ExtResource("1_4o7yd")
 
 [connection signal="body_entered" from="House" to="Player" method="_on_house_body_entered"]
+[connection signal="body_entered" from="House2" to="Player" method="_on_house_2_body_entered"]

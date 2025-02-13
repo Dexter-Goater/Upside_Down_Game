@@ -17,6 +17,7 @@ script = ExtResource("1_3f2lx")
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_woobo")
 
+[node name="Player_collision" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_vgra2")
 

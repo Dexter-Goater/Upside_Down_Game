@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1bipyfpjjtnb"]
+
+[ext_resource type="Texture2D" uid="uid://b0h101m65cows" path="res://Art/DoorArtPreview.png" id="1_0yn2y"]
+[ext_resource type="Script" path="res://Scenes/house_inside.gd" id="1_k40u3"]
+[ext_resource type="FontFile" uid="uid://c3hivq0hkuvc7" path="res://tinypixel.otf" id="2_slo7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv5qu"]
+atlas = ExtResource("1_0yn2y")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo7yf"]
+atlas = ExtResource("1_0yn2y")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4f8l"]
+atlas = ExtResource("1_0yn2y")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbcfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv5qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo7yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4f8l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_b6ufi"]
+default_font = ExtResource("2_slo7e")
+default_font_size = 1000
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_k40u3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lbcfp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 6000.0
+offset_bottom = 6000.0
+scale = Vector2(0.01, 0.01)
+theme = SubResource("Theme_b6ufi")
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = -1600.0
+offset_top = -2200.0
+offset_right = 1693.0
+offset_bottom = -1049.0
+text = "knock"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

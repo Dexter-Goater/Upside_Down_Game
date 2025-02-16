@@ -1,32 +1,32 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1bipyfpjjtnb"]
 
-[ext_resource type="Texture2D" uid="uid://b0h101m65cows" path="res://Art/DoorArtPreview.png" id="1_0yn2y"]
 [ext_resource type="Script" path="res://Scenes/house_inside.gd" id="1_k40u3"]
 [ext_resource type="FontFile" uid="uid://c3hivq0hkuvc7" path="res://tinypixel.otf" id="2_slo7e"]
+[ext_resource type="Texture2D" uid="uid://b3ehc5aqluras" path="res://Art/send to git frick.png" id="2_x03s5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iv5qu"]
-atlas = ExtResource("1_0yn2y")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4u7a"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(0, 0, 116, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qo7yf"]
-atlas = ExtResource("1_0yn2y")
-region = Rect2(128, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekqyh"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(116, 0, 116, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4f8l"]
-atlas = ExtResource("1_0yn2y")
-region = Rect2(0, 64, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hp3n"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(232, 0, 116, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lbcfp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iv5qu")
+"texture": SubResource("AtlasTexture_c4u7a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qo7yf")
+"texture": SubResource("AtlasTexture_ekqyh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t4f8l")
+"texture": SubResource("AtlasTexture_2hp3n")
 }],
 "loop": false,
 "name": &"default",
@@ -55,6 +55,7 @@ scale = Vector2(0.01, 0.01)
 theme = SubResource("Theme_b6ufi")
 
 [node name="Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = -1600.0
 offset_top = -2200.0
 offset_right = 1693.0

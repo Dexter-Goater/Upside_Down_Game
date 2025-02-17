@@ -13,3 +13,4 @@ func _process(delta):
 func _on_button_pressed():
 	$AnimatedSprite2D.play("default")
 	$Control/Button.hide()
+	

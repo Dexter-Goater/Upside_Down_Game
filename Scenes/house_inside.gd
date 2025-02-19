@@ -1,5 +1,7 @@
 extends Node2D
-
+var dialogue_resource : DialogueResource
+var dialogue_start : String = "start"
+# Called when the node enters the scene tree for the first time.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,4 +15,5 @@ func _process(delta):
 func _on_button_pressed():
 	$AnimatedSprite2D.play("default")
 	$Control/Button.hide()
+	Dialogic.start("timeline")
 	

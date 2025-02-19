@@ -1,12 +1,130 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5sg24ekp0qsq"]
+[gd_scene load_steps=21 format=3 uid="uid://c5sg24ekp0qsq"]
 
 [ext_resource type="Script" path="res://Scripts/scene.gd" id="1_3f2lx"]
 [ext_resource type="Texture2D" uid="uid://ddb8bd441yjl2" path="res://icon.svg" id="1_4o7yd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_woobo"]
+[ext_resource type="Texture2D" uid="uid://dj18spq7kwmoi" path="res://Art/walking animations.png" id="3_sclvt"]
 [ext_resource type="Script" path="res://Scripts/House1.gd" id="3_vycj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgra2"]
-size = Vector2(126, 122)
+size = Vector2(89, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etv4x"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr4j4"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdc4b"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88vxl"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3i3n"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydnim"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_803q8"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i45o"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qgwh"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekdfh"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyv08"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr1vd"]
+atlas = ExtResource("3_sclvt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1dwr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etv4x")
+}],
+"loop": true,
+"name": &"Idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr4j4")
+}],
+"loop": true,
+"name": &"Idle side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdc4b")
+}],
+"loop": true,
+"name": &"Idle up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88vxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3i3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydnim")
+}],
+"loop": true,
+"name": &"Walking down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_803q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i45o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qgwh")
+}],
+"loop": true,
+"name": &"Walking side",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekdfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyv08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr1vd")
+}],
+"loop": true,
+"name": &"Walking up",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa1qf"]
 size = Vector2(121.875, 119)
@@ -18,13 +136,16 @@ script = ExtResource("1_3f2lx")
 script = ExtResource("1_woobo")
 
 [node name="Player_collision" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, -1)
+position = Vector2(-1.5, -3)
 shape = SubResource("RectangleShape2D_vgra2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_4o7yd")
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_a1dwr")
+animation = &"Walking down"
+frame_progress = 0.974208
 
 [node name="House" type="Area2D" parent="."]
 position = Vector2(392, -209)

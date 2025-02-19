@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5sg24ekp0qsq"]
 
 [ext_resource type="Script" path="res://Scripts/scene.gd" id="1_3f2lx"]
-[ext_resource type="Texture2D" uid="uid://vd7k4p0yihvt" path="res://icon.svg" id="1_4o7yd"]
+[ext_resource type="Texture2D" uid="uid://ddb8bd441yjl2" path="res://icon.svg" id="1_4o7yd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_woobo"]
 [ext_resource type="Script" path="res://Scripts/House1.gd" id="3_vycj5"]
 

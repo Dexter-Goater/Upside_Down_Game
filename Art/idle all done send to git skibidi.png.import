@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3baj6rygkb3f"
-path="res://.godot/imported/update.svg-f1628866ed4eb2e13e3b81f75443687e.ctex"
+uid="uid://cg1maa1ar3hst"
+path="res://.godot/imported/idle all done send to git skibidi.png-36ed189bd7d8061f89e0a165c5d60e08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/dialogue_manager/assets/update.svg"
-dest_files=["res://.godot/imported/update.svg-f1628866ed4eb2e13e3b81f75443687e.ctex"]
+source_file="res://Art/idle all done send to git skibidi.png"
+dest_files=["res://.godot/imported/idle all done send to git skibidi.png-36ed189bd7d8061f89e0a165c5d60e08.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

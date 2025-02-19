@@ -1,1 +1,12 @@
-sigma
+join Pizza_man center
+Pizza_man: How Can I help you
+- I have your mail
+	Pizza_man: Oh you must be new im (insert name later) I run the pizza place in town.
+	Pizza_man: And what might your name be?
+	[text_input text="Whats your name?" var="Player_name"]
+	Pizza_man: Its nice to meet you {Player_name}
+	leave Pizza_man
+	- Leave
+		[signal arg="Leave"]
+	[wait time="2.0"]
+	[end_timeline]

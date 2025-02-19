@@ -1,8 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1bipyfpjjtnb"]
+[gd_scene load_steps=12 format=3 uid="uid://b1bipyfpjjtnb"]
 
-[ext_resource type="Script" path="res://Scenes/house_inside.gd" id="1_k40u3"]
+[ext_resource type="Script" path="res://Scripts/house_inside.gd" id="1_k40u3"]
 [ext_resource type="FontFile" uid="uid://c3hivq0hkuvc7" path="res://tinypixel.otf" id="2_slo7e"]
 [ext_resource type="Texture2D" uid="uid://b3ehc5aqluras" path="res://Art/send to git frick.png" id="2_x03s5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7nv4"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(232, 0, 116, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_732v8"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(116, 0, 116, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el1ff"]
+atlas = ExtResource("2_x03s5")
+region = Rect2(0, 0, 116, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4u7a"]
 atlas = ExtResource("2_x03s5")
@@ -18,6 +30,20 @@ region = Rect2(232, 0, 116, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lbcfp"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7nv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_732v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el1ff")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4u7a")
@@ -42,6 +68,9 @@ script = ExtResource("1_k40u3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lbcfp")
+animation = &"Closing"
+frame = 2
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(10, 10)
@@ -62,4 +91,8 @@ offset_right = 1693.0
 offset_bottom = -1049.0
 text = "knock"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

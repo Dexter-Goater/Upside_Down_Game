@@ -1,33 +1,22 @@
 extends CharacterBody2D
 var speed = 400  # speed in pixels/sec
-
-
+@onready var animations = $AnimatedSprite2D
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
 	move_and_slide()
-
-func _input(event):
-		##If left or right is pressed, it plays the relevant walk animation
-	if Input.is_action_just_pressed("left"):
-		$AnimatedSprite2D.play("Walking side")
-		$AnimatedSprite2D.flip_h = true
-	elif Input.is_action_just_pressed("right"):
-		$AnimatedSprite2D.play("Walking side")
-		$AnimatedSprite2D.flip_h = false
-	elif Input.is_action_just_pressed("up"):
-		$AnimatedSprite2D.play("Walking up")
-	elif Input.is_action_just_pressed("down"):
-		$AnimatedSprite2D.play("Walking dow")
-
-		##Plays the idle animation once the left or right button is released
-	if Input.is_action_just_released("left") or Input.is_action_just_released("right"):
-		$AnimatedSprite2D.play("Idle side")
-	elif Input.is_action_just_released("up"):
-		$AnimatedSprite2D.play("Idle up")
-	elif Input.is_action_just_released("down"):
-		$AnimatedSprite2D.play("Idle down")
+	updateAnimation()
+func updateAnimation():
+	if velocity.length() == 0:
+		animations.stop()
+	else:
+		var facing = "down"
+		if velocity.x < 0: facing = "left"
+		elif velocity.x > 0: facing = "right"
+		elif velocity.y < 0: facing = "up"
+	
+		animations.play("Walking " + facing)
 	
 func _ready() -> void:
 	self.position.x = Globals.player_x
@@ -44,8 +33,3 @@ func _on_house_body_entered(body: Node2D) -> void:
 		Globals.player_x = self.position.x
 		Globals.player_y = self.position.y
 		get_tree().change_scene_to_file("res://Scenes/House_inside.tscn")
-
-func _on_house_2_body_entered(body):
-	if Globals.house2_visited == false and body.name == "Player":
-		Globals.newspapers -= 1
-		Globals.house2_visited = true

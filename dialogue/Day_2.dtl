@@ -1,0 +1,11 @@
+join Pizza_man center
+Pizza_man: Its nice to see you again {player_name}
+- Do you know where (street number) is?
+	Pizza_man: Oh thats (local bank name) its just down the road you cant miss it.
+	- heres your mail
+		Pizza_man: Thank you Ill see you again tommorow.
+		leave Pizza_man
+		- Leave
+			[signal arg="Leave"]
+		[wait time="2.0"]
+		[end_timeline]

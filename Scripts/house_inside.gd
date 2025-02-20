@@ -14,7 +14,10 @@ func _process(delta):
 func _on_button_pressed():
 	$AnimatedSprite2D.play("default")
 	$Control/Button.hide()
-	Dialogic.start("timeline")
+	if Globals.day == 1:
+		Dialogic.start("timeline")
+	if Globals.day == 2:
+		pass
 
 func _on_dialogic_signal(argument: String):
 	if argument == "Leave":
@@ -23,6 +26,9 @@ func _on_dialogic_signal(argument: String):
 
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Scene.tscn")
+	if Globals.day == 1:
+		get_tree().change_scene_to_file("res://Scenes/Scene.tscn")
+	if Globals.day == 2:
+		get_tree().change_scene_to_file("res://Scenes/Day_2.tscn")
 	Globals.newspapers -= 1
 	

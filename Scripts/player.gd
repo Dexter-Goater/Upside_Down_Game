@@ -1,7 +1,6 @@
 extends CharacterBody2D
 var speed = 400  # speed in pixels/sec
 @onready var animations = $AnimatedSprite2D
-
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
@@ -22,10 +21,10 @@ func _ready() -> void:
 	self.position.x = Globals.player_x
 	self.position.y = Globals.player_y
 
+	
+
 func _process(delta: float) -> void:
-	if Globals.newspapers == 0:
-		Globals.day += 1
-		get_tree().change_scene_to_file("res://Scenes/day_selector.tscn")
+	pass
 
 func _on_house_body_entered(body: Node2D) -> void:
 	if Globals.house1_visited == false and body.name == "Player":

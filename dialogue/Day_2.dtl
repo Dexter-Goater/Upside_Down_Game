@@ -1,5 +1,5 @@
 join Pizza_man center
-Pizza_man: Its nice to see you again {player_name}
+Pizza_man: Its nice to see you again {Player_name}
 - Do you know where (street number) is?
 	Pizza_man: Oh thats (local bank name) its just down the road you cant miss it.
 	- heres your mail

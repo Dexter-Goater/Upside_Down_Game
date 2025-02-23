@@ -12,14 +12,14 @@
 },
 "default_portrait": "Pizza_day1",
 "description": "",
-"display_name": "Pizza_man",
+"display_name": "Tortellini",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "Pizza_day1": {
 "export_overrides": {
-"image": "\"res://icon.svg\""
+"image": "\"res://Art/tortellini mouth closed.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

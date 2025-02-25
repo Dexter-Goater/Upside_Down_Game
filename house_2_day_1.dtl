@@ -1,0 +1,4 @@
+join Bank_lady center
+Bank_lady: Welcome to my bank  {Player_name}
+- How do you know my name?
+	Bank_lady: You know how word travels in a small town like this

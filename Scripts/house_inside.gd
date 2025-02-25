@@ -14,10 +14,13 @@ func _process(delta):
 func _on_button_pressed():
 	$AnimatedSprite2D.play("default")
 	$Control/Button.hide()
-	if Globals.day == 1:
-		Dialogic.start("timeline")
-	if Globals.day == 2:
-		Dialogic.start("Day_2")
+	if Globals.house == 1:
+		if Globals.day == 1:
+			Dialogic.start("timeline")
+		if Globals.day == 2:
+			Dialogic.start("Day_2")
+	if Globals.house == 2:
+		pass
 
 func _on_dialogic_signal(argument: String):
 	if argument == "Leave":

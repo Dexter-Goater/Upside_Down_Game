@@ -23,11 +23,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Bank_lady": "res://dialogue/Bank_lady.dch",
 "Pizza_man": "res://dialogue/Pizza_man.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "Day_2": "res://dialogue/Day_2.dtl",
+"house_2_day_1": "res://house_2_day_1.dtl",
 "timeline": "res://dialogue/timeline.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"

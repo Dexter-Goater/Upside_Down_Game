@@ -1,7 +1,7 @@
 join Pizza_man center
 Pizza_man: Its nice to see you again {Player_name}
-- Do you know where (street number) is?
-	Pizza_man: Oh thats (local bank name) its just down the road you cant miss it.
+- Do you know where 155 north street is?
+	Pizza_man: Oh thats The Bank of Bennington its just down the road you cant miss it.
 	- heres your mail
 		Pizza_man: Thank you Ill see you again tommorow.
 		leave Pizza_man

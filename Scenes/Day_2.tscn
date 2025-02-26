@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dpi8xr18p1d88"]
+[gd_scene load_steps=33 format=3 uid="uid://dpi8xr18p1d88"]
 
 [ext_resource type="Script" path="res://Scripts/scene.gd" id="1_76dyy"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_bxu7x"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b6akncsls1rka" path="res://Art/Left walking animations.png" id="5_ppf8b"]
 [ext_resource type="Script" path="res://Scripts/House1.gd" id="6_jdeur"]
 [ext_resource type="Texture2D" uid="uid://ddb8bd441yjl2" path="res://icon.svg" id="7_s45iq"]
+[ext_resource type="Texture2D" uid="uid://ffdpl5oh0id" path="res://Art/ROAD ARHHHH SKIBIDI.png" id="8_lhteq"]
+[ext_resource type="Texture2D" uid="uid://c6vktvgurw67i" path="res://Art/green.png" id="9_rhy0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgra2"]
 size = Vector2(89, 118)
@@ -149,6 +151,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa1qf"]
 size = Vector2(121.875, 119)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bj3nw"]
+texture = ExtResource("9_rhy0d")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uqs3k"]
+sources/0 = SubResource("TileSetAtlasSource_bj3nw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5v2t"]
+size = Vector2(4802.25, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsflu"]
+size = Vector2(186, 1600)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_76dyy")
 
@@ -188,6 +204,43 @@ shape = SubResource("RectangleShape2D_fa1qf")
 
 [node name="Sprite2D" type="Sprite2D" parent="House2"]
 texture = ExtResource("7_s45iq")
+
+[node name="Road" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(307, 0.999992)
+scale = Vector2(50, 25)
+texture = ExtResource("8_lhteq")
+
+[node name="Road" type="Sprite2D" parent="Road"]
+z_index = -1
+position = Vector2(31.36, 3.57628e-07)
+texture = ExtResource("8_lhteq")
+
+[node name="Road" type="Sprite2D" parent="Road/Road"]
+z_index = -1
+position = Vector2(31.36, 3.57628e-07)
+texture = ExtResource("8_lhteq")
+
+[node name="Grass" type="TileMap" parent="."]
+z_index = -5
+scale = Vector2(50, 25)
+tile_set = SubResource("TileSet_uqs3k")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 0, 0, -65537, 0, 0, -131070, 0, 0, 131071, 0, 0, 65537, 0, 0, 65539, 0, 0, 65534, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 262143, 0, 0, 262142, 0, 0, 131069, 0, 0, 262140, 0, 0, 196604, 0, 0, 131068, 0, 0, 65532, 0, 0, -4, 0, 0, -65540, 0, 0, -131076, 0, 0, -65539, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -131068, 0, 0, -262139, 0, 0, -131066, 0, 0)
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(1198.75, 892)
+shape = SubResource("RectangleShape2D_o5v2t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision"]
+position = Vector2(1200, -903)
+shape = SubResource("RectangleShape2D_o5v2t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-1105, -6)
+shape = SubResource("RectangleShape2D_lsflu")
 
 [connection signal="body_entered" from="House" to="Player" method="_on_house_body_entered"]
 [connection signal="body_entered" from="House2" to="Player" method="_on_house_2_body_entered"]

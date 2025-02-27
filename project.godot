@@ -29,6 +29,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Day_2": "res://dialogue/Day_2.dtl",
+"Day_2_bank": "res://dialogue/Day_2_bank.dtl",
 "house_2_day_1": "res://house_2_day_1.dtl",
 "timeline": "res://dialogue/timeline.dtl"
 }
@@ -80,6 +81,12 @@ window/stretch/aspect="keep_height"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Shooter/": "red"
+}
 
 [input]
 

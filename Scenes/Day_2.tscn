@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dj18spq7kwmoi" path="res://Art/walking animations.png" id="4_5egjy"]
 [ext_resource type="Texture2D" uid="uid://b6akncsls1rka" path="res://Art/Left walking animations.png" id="5_ppf8b"]
 [ext_resource type="Script" path="res://Scripts/House1.gd" id="6_jdeur"]
-[ext_resource type="Texture2D" uid="uid://ddb8bd441yjl2" path="res://icon.svg" id="7_s45iq"]
+[ext_resource type="Texture2D" uid="uid://bswedsaa42dl0" path="res://icon.svg" id="7_s45iq"]
 [ext_resource type="Texture2D" uid="uid://ffdpl5oh0id" path="res://Art/ROAD ARHHHH SKIBIDI.png" id="8_lhteq"]
 [ext_resource type="Texture2D" uid="uid://c6vktvgurw67i" path="res://Art/green.png" id="9_rhy0d"]
 

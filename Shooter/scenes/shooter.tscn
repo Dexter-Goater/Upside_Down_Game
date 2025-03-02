@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cey6ype0p64pu"]
+[gd_scene load_steps=4 format=3 uid="uid://cey6ype0p64pu"]
+
+[ext_resource type="PackedScene" uid="uid://b1qwi7t3n2vi8" path="res://Shooter/scenes/box.tscn" id="1_ux687"]
+[ext_resource type="PackedScene" uid="uid://c2yag71pmgniq" path="res://Shooter/scenes/player_shooter.tscn" id="2_luecu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5weuc"]
 
@@ -6,6 +9,23 @@
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.0901961, 0.168627, 0.105882, 1)
+z_index = -10
 position = Vector2(795.743, 460.928)
 scale = Vector2(-1813.36, 1070.36)
 mesh = SubResource("QuadMesh_5weuc")
+metadata/_edit_lock_ = true
+
+[node name="Box" parent="." instance=ExtResource("1_ux687")]
+position = Vector2(110, 49)
+
+[node name="Box2" parent="." instance=ExtResource("1_ux687")]
+position = Vector2(1280, 608)
+
+[node name="Box3" parent="." instance=ExtResource("1_ux687")]
+position = Vector2(1129, 165)
+
+[node name="Box4" parent="." instance=ExtResource("1_ux687")]
+position = Vector2(459, 490)
+
+[node name="Player_shooter" parent="." instance=ExtResource("2_luecu")]
+position = Vector2(809, 437)

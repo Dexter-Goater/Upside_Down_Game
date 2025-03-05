@@ -1,28 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2yag71pmgniq"]
+[gd_scene load_steps=7 format=3 uid="uid://c2yag71pmgniq"]
 
 [ext_resource type="Script" path="res://Shooter/scripts/player_shooter.gd" id="1_ek265"]
-[ext_resource type="Texture2D" uid="uid://bswedsaa42dl0" path="res://icon.svg" id="2_s8phg"]
+[ext_resource type="Texture2D" uid="uid://c8b6tw3lhqsdi" path="res://Art/Mali man done.png" id="2_wxsd0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ovpa"]
-radius = 32.0
-height = 122.0
+radius = 46.0
+height = 106.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvujs"]
 radius = 22.0
 height = 94.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5kew"]
+atlas = ExtResource("2_wxsd0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2geh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5kew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player_shooter" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_ek265")
-
-[node name="Body" type="Sprite2D" parent="."]
-texture = ExtResource("2_s8phg")
-
-[node name="Gun" type="Sprite2D" parent="Body"]
-position = Vector2(108, 0)
-scale = Vector2(0.726563, 0.148438)
-texture = ExtResource("2_s8phg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6ovpa")
@@ -37,5 +44,9 @@ collision_mask = 8
 shape = SubResource("CapsuleShape2D_uvujs")
 
 [node name="CameraRemoteTransform" type="RemoteTransform2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_x2geh")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,6 +1,14 @@
 extends CharacterBody2D
-var speed = 300.0
-	
+class_name Player
+
+signal died
+
+
+
+@onready var camera_remote_transform = $CameraRemoteTransform
+
+var speed = 400.0
+
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	
@@ -15,3 +23,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		died.emit()
+		queue_free()

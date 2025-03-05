@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cey6ype0p64pu"]
+[gd_scene load_steps=6 format=3 uid="uid://cey6ype0p64pu"]
 
+[ext_resource type="Script" path="res://Shooter/scripts/world.gd" id="1_2bmo2"]
 [ext_resource type="PackedScene" uid="uid://b1qwi7t3n2vi8" path="res://Shooter/scenes/box.tscn" id="1_ux687"]
 [ext_resource type="PackedScene" uid="uid://c2yag71pmgniq" path="res://Shooter/scenes/player_shooter.tscn" id="2_luecu"]
+[ext_resource type="PackedScene" uid="uid://bijy5fo1fm2v" path="res://Shooter/scenes/enemy.tscn" id="3_mw8bb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5weuc"]
 
 [node name="Shooter" type="Node2D"]
+script = ExtResource("1_2bmo2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.0901961, 0.168627, 0.105882, 1)
@@ -29,3 +32,8 @@ position = Vector2(459, 490)
 
 [node name="Player_shooter" parent="." instance=ExtResource("2_luecu")]
 position = Vector2(809, 437)
+
+[node name="Enemy" parent="." instance=ExtResource("3_mw8bb")]
+position = Vector2(408, 217)
+
+[node name="MainCamera" type="Camera2D" parent="."]

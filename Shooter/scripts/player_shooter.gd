@@ -8,6 +8,7 @@ signal died
 @onready var camera_remote_transform = $CameraRemoteTransform
 @onready var shoot_raycast = $ShootRaycast
 @onready var anim = $AnimatedSprite2D
+@onready var shoot_sound = $ShootSound
 var speed = 400.0
 var canshoot = true
 

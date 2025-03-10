@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bijy5fo1fm2v"]
+[gd_scene load_steps=6 format=3 uid="uid://bijy5fo1fm2v"]
 
 [ext_resource type="Script" path="res://Shooter/scripts/enemy.gd" id="1_7rv0x"]
 [ext_resource type="Texture2D" uid="uid://bswedsaa42dl0" path="res://icon.svg" id="1_vjarb"]
+[ext_resource type="AudioStream" uid="uid://c6ic5s57flu12" path="res://Shooter/Audio/zombie-pain-1-95166.mp3" id="3_l5fcq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6h04"]
 radius = 47.0
@@ -27,6 +28,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_sys02")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l5fcq")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

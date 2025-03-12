@@ -37,3 +37,15 @@ position = Vector2(809, 437)
 position = Vector2(408, 217)
 
 [node name="MainCamera" type="Camera2D" parent="."]
+
+[node name="Enemy2" parent="." instance=ExtResource("3_mw8bb")]
+position = Vector2(1492, 244)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_mw8bb")]
+position = Vector2(742, 785)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_mw8bb")]
+position = Vector2(1422, 836)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_mw8bb")]
+position = Vector2(882, 71)

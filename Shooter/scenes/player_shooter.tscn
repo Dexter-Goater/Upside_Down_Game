@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2yag71pmgniq"]
+[gd_scene load_steps=11 format=3 uid="uid://c2yag71pmgniq"]
 
 [ext_resource type="Script" path="res://Shooter/scripts/player_shooter.gd" id="1_ek265"]
 [ext_resource type="Texture2D" uid="uid://c8b6tw3lhqsdi" path="res://Art/Mali man done.png" id="2_wxsd0"]
@@ -15,6 +15,22 @@ height = 94.0
 atlas = ExtResource("2_wxsd0")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1yyu"]
+atlas = ExtResource("2_wxsd0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgif"]
+atlas = ExtResource("2_wxsd0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r7t5"]
+atlas = ExtResource("2_wxsd0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx0l5"]
+atlas = ExtResource("2_wxsd0")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_x2geh"]
 animations = [{
 "frames": [{
@@ -22,8 +38,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_l5kew")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1yyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r7t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx0l5")
+}],
+"loop": false,
+"name": &"Shooting",
+"speed": 6.0
 }]
 
 [node name="Player_shooter" type="CharacterBody2D"]
@@ -48,5 +81,20 @@ shape = SubResource("CapsuleShape2D_uvujs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_x2geh")
+animation = &"Shooting"
+autoplay = "Idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="ShootRaycast" type="RayCast2D" parent="."]
+position = Vector2(39, 0)
+target_position = Vector2(1000, 0)
+collision_mask = 9
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
